@@ -66,13 +66,14 @@ export function PokemonStatsChart({ stats }) {
   }
 
   return (
-    <Chart
-      cl
-      options={chartOptions}
-      series={chartSeries}
-      type="radar"
-      height="330"
-      width="500"
-    />
+    <div className="min-h-min flex justify-center items-center">
+      <Chart
+        options={chartOptions}
+        series={chartSeries}
+        type="radar"
+        height="330"
+        width="500"
+      />
+    </div>
   );
 }

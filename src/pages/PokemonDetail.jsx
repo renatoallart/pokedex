@@ -51,9 +51,13 @@ export function PokemonDetail() {
   }
 
   return (
-    <section className=" flex  place-content-evenly flex-wrap gap-4">
-      <PokemonStatsChart {...pokemonDetail} />
+    <section
+      className="max-h-screen flex flex-col m-4 p-4 gap-4
+       md:flex md:flex-row-reverse md:justify-center md:m-4 md:p-4
+     "
+    >
       <PokemonCard {...pokemonDetail} detail={true} />
+      <PokemonStatsChart {...pokemonDetail} />
     </section>
   );
 }

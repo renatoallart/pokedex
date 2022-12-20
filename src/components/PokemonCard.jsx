@@ -38,28 +38,30 @@ export function PokemonCard({ name, sprite, types, detail }) {
   }
 
   return (
-    <div
-      className="bg-gray-300 h-[330px]  flex flex-col gap-4 hover:bg-gray-500"
-      style={handleCursor}
-      onClick={() => handleNavigate(name)}
-    >
-      <h2 className="text-xl text-center font-bold">
-        {name[0].toUpperCase() + name.substring(1)}{" "}
-      </h2>
-      <img style={size} src={sprite} alt={`Pokemon: ${name}`} />
-      <div className="flex justify-center">
-        {types.map((data, index) => {
-          const { name } = data.type;
-          return (
-            <span
-              className="text-md m-2 font-semibold p-2 rounded-md"
-              style={{ backgroundColor: backgroundColor[name] }}
-              key={index}
-            >
-              {name[0].toUpperCase() + name.substring(1)}
-            </span>
-          );
-        })}
+    <div className=" flex place-content-center">
+      <div
+        className="bg-gray-300 h-[330px] w-[500px]  flex flex-col gap-4 hover:bg-gray-500"
+        style={handleCursor}
+        onClick={() => handleNavigate(name)}
+      >
+        <h2 className="text-xl text-center font-bold">
+          {name[0].toUpperCase() + name.substring(1)}{" "}
+        </h2>
+        <img style={size} src={sprite} alt={`Pokemon: ${name}`} />
+        <div className="flex justify-center">
+          {types.map((data, index) => {
+            const { name } = data.type;
+            return (
+              <span
+                className="text-md m-2 font-semibold p-2 rounded-md"
+                style={{ backgroundColor: backgroundColor[name] }}
+                key={index}
+              >
+                {name[0].toUpperCase() + name.substring(1)}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

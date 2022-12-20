@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { usePokemonContext } from "../context/PokemonProvider";
 
 export function PokemonSearch() {
-  const { setRandomList } = usePokemonContext();
+  const { fetchPokemonData } = usePokemonContext();
   const inputSearch = useRef();
   const navigate = useNavigate();
 
   function handleSubmit(event) {
     const { value } = inputSearch.current;
-    if (value === "") return event.preventDefault();
+    if (!value.trim()) return event.preventDefault();
     navigate(`pokemon/detail/${value.toLowerCase()}`);
   }
   return (
@@ -33,7 +33,7 @@ export function PokemonSearch() {
           Search
         </button>
         <button
-          onClick={() => setRandomList((oldState) => !oldState)}
+          onClick={fetchPokemonData}
           className=" font-bold bg-slate-600 w-24 rounded-lg text-white h-14 hover:text-black hover:bg-gray-400 p-2"
         >
           Surprise Me!
