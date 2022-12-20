@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export function App() {
   return (
-    <main>
+    <main className="debug-screens">
       <PokemonProvider>
         <BrowserRouter>
           <h1 className=" text-center text-4xl font-bold m-4 hover:text-gray-500">

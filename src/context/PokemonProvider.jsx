@@ -11,11 +11,9 @@ export function usePokemonContext() {
 }
 
 export function PokemonProvider({ children }) {
-  const [pokemonNameList, setPokemonNameList] = useState([]);
   const [pokemonData, setPokemonData] = useState([]);
-  const [randomList, setRandomList] = useState(false);
 
-  async function fetchPokemonListArray() {
+  async function fetchPokemonList() {
     try {
       const { data } = await pokedexApi.get("pokemon/", {
         params: {
@@ -23,14 +21,15 @@ export function PokemonProvider({ children }) {
           offset: 0,
         },
       });
-      let randomNames = randomPokemonList(data);
-      setPokemonNameList(randomNames);
+      return randomPokemonList(data);
+      // setPokemonNameList(randomNames);
     } catch (error) {
       console.log("pokemonList Array", error);
     }
   }
 
   async function fetchPokemonData() {
+    let pokemonNameList = await fetchPokemonList();
     try {
       const response = await Promise.all(
         pokemonNameList.map((pokemon) => pokedexApi.get(`pokemon/${pokemon}`))
@@ -48,17 +47,13 @@ export function PokemonProvider({ children }) {
   }
 
   useEffect(() => {
-    fetchPokemonListArray();
-  }, [randomList]);
-
-  useEffect(() => {
     fetchPokemonData();
-  }, [pokemonNameList]);
+  }, []);
 
   // console.log(pokemonNameList, "list");
 
   return (
-    <PokemonContext.Provider value={{ pokemonData, setRandomList }}>
+    <PokemonContext.Provider value={{ pokemonData, fetchPokemonData }}>
       {children}
     </PokemonContext.Provider>
   );
