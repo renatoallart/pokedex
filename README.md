@@ -16,6 +16,7 @@ An application in Vitejs.
 Learn React.js
 ## Technologies
 
+- [Vitejs](https://vitejs.dev/)
 - [Reactjs](https://reactjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Axios](https://axios-http.com/)
