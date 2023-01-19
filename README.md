@@ -1,7 +1,8 @@
 
 # Pokedex
 
-An application in Vitejs. 
+A responsive application in Vitejs, where the User can search a Pokemon by name, 
+and generate a random list with 3 Pokemons. Clicked on Pokemon can see all Pokemon's stats displayed in the chart.
 
 ![pokedex](https://user-images.githubusercontent.com/30847676/211913895-e6811ac0-67ef-4cad-a874-e2a22ae57a9c.gif)
 
