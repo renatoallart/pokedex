@@ -11,7 +11,7 @@ and generate a random list with 3 Pokemons. Clicked on Pokemon can see all Pokem
 <a href="https://ecommerce-renatoallart.vercel.app/" target="_blank">E-commerce</a>
 
 
-## Table of contentes
+## Table of contents
 
 * [Motivations](#motivations)
 * [Technologies](#technologies)
